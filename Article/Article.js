@@ -2,7 +2,7 @@
 /* Look over this data, then proceed to line 91*/
 const data = [
   {
-    title: 'Lambda School Students: "We\'re the best!"',
+    title: 'Lambda School Students: "We\'re the best!"', 
     date: 'Nov 5th, 2018',
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
         moff wicket tatooine luke.Solo wampa wampa calrissian yoda moff.Darth grievous darth gonk darth hutt.Darth baba skywalker
@@ -54,7 +54,7 @@ const data = [
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Weedle Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Kakuna Lorem ipsum dolor sit amet, consectetur adipiscing elit. Beedrill Lorem ipsum dolor sit amet, consectetur adipiscing
         elit.`,
-
+   
     secondParagraph: `Pidgey Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pidgeotto Lorem ipsum dolor sit amet, consectetur adipiscing
         elit. Pidgeot Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rattata Lorem ipsum dolor sit amet, consectetur adipiscing
         elit. Raticate Lorem ipsum dolor sit amet, consectetur adipiscing elit. Spearow Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -85,6 +85,29 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  }, 
+  {
+    title: 'Latosha Tims Is The New Pokemon Champion',
+    date: 'Mar 11, 2020',
+    firstParagraph: `I want to be the very best,
+    Like no one ever was. To catch them is my real test,
+    To train them is my cause! (I will travel across the land,
+    Searching far and wide. Teach Pokemon to understand
+    The power that's inside!) Pokemon! Gotta catch em' all!
+    It's you and me, I know it's my destiny! Pokemon! Oh, you're my best friend,
+    In a world we must defend! Pokemon! Gotta catch em' all!
+    (A heart so true, Our courage will pull us through!)
+    You teach me and I'll teach you, Po-ke-mon!
+    Gotta catch em' all! Gotta catch em' all! Every challenge along the way,
+    With courage I will face! I will battle every day,
+    To claim my rightful place! Come with me, the time is right,
+    There's no better team! Arm in arm, we'll win the fight,
+    It's always been our dream! Pokemon! Gotta catch em' all!
+    It's…  `,
+
+    secondParagraph: `Pokem ipsum dolor sit amet Krabby Pelipper Taillow Vanillite Murkrow Machoke. Tail Whip Virizion Vulpix Ultra Ball Druddigon Pokemon The Movie 2000 Electabuzz. `,
+
+    thirdParagraph: `Consectetur adipisicing elit Mineral Badge bicycle Gurdurr Gothorita Electric Buneary. The Power Of One Officer Jenny Electrode Ninjask Spinarak Gengar Gulpin. `
   }
 ];
 
@@ -112,3 +135,60 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function articleMaker(d){
+
+let article = document.createElement('div');
+article.classList.add('article');
+
+let title = document.createElement('h2');
+
+let date = document.createElement('p');
+date.classList.add('date');
+
+let p2 = document.createElement('p');
+
+let p3 = document.createElement('p');
+
+let p4 = document.createElement('p');
+
+let span = document.createElement('span');
+span.classList.add('expandButton');
+span.addEventListener('click', (e) => {
+  article.classList.toggle('article-open')
+console.log(e.target);
+})
+
+article.appendChild(title);
+article.appendChild(date);
+article.appendChild(p2);
+article.appendChild(p3);
+article.appendChild(p4);
+article.appendChild(span);
+
+title.textContent = d.title;
+date.textContent = d.date;
+p2.textContent = d.firstParagraph;
+p3.textContent = d.secondParagraph;
+p4.textContent = d.thirdParagraph;
+span.textContent = '\u25bc';
+
+
+return article;
+
+
+
+}
+ 
+
+const articlePage = document.querySelector('.articles');
+
+
+data.forEach( x => {
+articlePage.append(articleMaker(x))
+console.log(x.title);
+})
+
+
+
+
+// just add something 
