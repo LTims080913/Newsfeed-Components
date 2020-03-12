@@ -157,6 +157,18 @@ span.addEventListener('click', (e) => {
   article.classList.toggle('article-open')
 console.log(e.target);
 })
+let button = document.createElement('button');
+button.classList.add('button');
+button.style.color = '#004D40';
+button.style.backgroundColor = '#81C784';
+button.style.borderRadius = '10px';
+button.style.height = '5vh';
+button.style.width = '20%';
+button.style.fontSize = '110%';
+button.addEventListener('click', (e) => {
+  article.classList.toggle('read-btn')
+})
+
 
 article.appendChild(title);
 article.appendChild(date);
@@ -164,6 +176,7 @@ article.appendChild(p2);
 article.appendChild(p3);
 article.appendChild(p4);
 article.appendChild(span);
+article.appendChild(button);
 
 title.textContent = d.title;
 date.textContent = d.date;
@@ -171,6 +184,7 @@ p2.textContent = d.firstParagraph;
 p3.textContent = d.secondParagraph;
 p4.textContent = d.thirdParagraph;
 span.textContent = '\u25bc';
+button.textContent = 'Read';
 
 
 return article;

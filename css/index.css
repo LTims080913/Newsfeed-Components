@@ -76,6 +76,9 @@
 .article-open {
   height: 400px;
 }
+.read-btn {
+  display: none;
+}
 .menu-button {
   position: absolute;
   left: 20px;
